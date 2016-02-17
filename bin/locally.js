@@ -3,7 +3,7 @@
 var extract = require('../js/extract');
 var build = require('../js/build');
 
-var FLAG_INPUT = '-f';
+var FLAG_INPUT = '-i';
 var FLAG_OUTPUT = '-o';
 var FLAG_PATTERN = '-p';
 var DEFAULT_PATTERN = 'NSLocalizedString\(@(), .*\);'
