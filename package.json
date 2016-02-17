@@ -1,0 +1,30 @@
+{
+    "author": {
+        "name": "Mattias Eriksson",
+        "email": "thematerik@gmail.com"
+    },
+    "bin": "./bin/locally.js",
+    "bugs": {
+        "url":
+        "https://github.com/materik/locally/issues"
+    },
+    "contributors": [
+        {
+            "name": "Mattias Eriksson",
+            "email": "thematerik@gmail.com"
+        }
+    ],
+    "description": "Run your frontend in a Docker container",
+    "homepage": "https://github.com/materik/locally",
+    "keywords": [
+        "localization",
+        "xcode"
+    ],
+    "license": "MIT",
+    "name": "locally",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/materik/locally.git"
+    },
+    "version": "0.1.0"
+}
