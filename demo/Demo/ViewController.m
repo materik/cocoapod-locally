@@ -16,8 +16,10 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  [self setTitle:NSLocalizedString(@"Profile Title", nil)];
-  [self setTitle:NSLocalizedString(@"New String", nil)];
+
+  NSLocalizedString(@"Profile Title", nil);
+  NSLocalizedString(@"New String", nil);
+  NSLocalizedString(@"New String", @"Duplicate");
 }
 
 @end

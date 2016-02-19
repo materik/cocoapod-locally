@@ -15,6 +15,9 @@
         }
     ],
     "description": "Run your frontend in a Docker container",
+    "dependencies": {
+        "underscore": "~1.8"
+    },
     "homepage": "https://github.com/materik/locally",
     "keywords": [
         "localization",

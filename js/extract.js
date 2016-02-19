@@ -1,5 +1,5 @@
 
-var utils = require('./utils');
+var _ = require('underscore');
 
 module.exports = extract = {
    
@@ -16,7 +16,7 @@ module.exports = extract = {
     },
 
     newLocalizedStrings: function(lsInProject, lsInStringsFile) {
-        var newLs = utils.diff(lsInProject, lsInStringsFile);
+        var newLs = _.uniq(_.difference(lsInProject, lsInStringsFile));
         var newLsCount = newLs.length;
         if (newLsCount > 0) {
             console.log('Found ' + newLsCount + ' new string(s):');
@@ -26,7 +26,7 @@ module.exports = extract = {
     },
 
     unusedLocalizedStrings: function(lsInProject, lsInStringsFile) {
-        var unusedLs = utils.diff(lsInStringsFile, lsInProject);
+        var unusedLs = _.difference(lsInStringsFile, lsInProject);
         var unusedLsCount = unusedLs.length;
         if (unusedLsCount > 0) {
             console.log('Found ' + unusedLsCount + ' unused string(s):');

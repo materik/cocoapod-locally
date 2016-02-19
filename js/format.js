@@ -1,4 +1,6 @@
 
+var _ = require('underscore');
+
 module.exports = format = {
 
     newLocalizedStrings: function(lsInProject, lsInStringsFile, lsNotInStringsFile) {
@@ -17,7 +19,7 @@ module.exports = format = {
     inUseLocalizedStrings: function(lsInProject, lsInStringsFile) {
         var localizedStrings = []
         var lsInStringsFileKeys = Object.keys(lsInStringsFile);
-        var lsInUse = utils.intersect(lsInStringsFileKeys, lsInProject);
+        var lsInUse = _.intersection(lsInStringsFileKeys, lsInProject);
         if (lsInUse.length > 0) { 
             localizedStrings.push('');
             localizedStrings.push('/* Used strings */');
