@@ -1,6 +1,7 @@
 ![](logo.png)
 
 [![](https://img.shields.io/badge/contact-@thematerik-blue.svg?style=flat-square)](http://twitter.com/thematerik)
+[![](https://img.shields.io/travis/materik/locally.svg?style=flat-square)](https://travis-ci.org/materik/locally)
 
 Node package for going through your Xcode project, locating all localized
 strings and add them to your `Localizable.strings` files. Also sorts and groups
