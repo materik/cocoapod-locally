@@ -30,6 +30,12 @@ locally -i <INPUT> -o <OUTPUT> [-p <PATTERN>]
             where '()' will be picked out as the string.
 ```
 
+## Demo
+
+Open the `Demo.xcodeproj`. Look into the `Localizable.strings` files and see the
+`ViewController` class. Now go to the `demo` folder and execute `./localize.sh`.
+See how the `Localizable.strings` files have changed.
+
 ## Notes
 
 - Will make this into a Xcode plugin
