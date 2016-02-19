@@ -16,7 +16,13 @@
     ],
     "description": "Run your frontend in a Docker container",
     "dependencies": {
-        "underscore": "~1.8"
+        "underscore": "1.8.x"
+    },
+    "devDependencies": {
+        "chai": "2.3.x",
+        "file-compare": "0.0.x",
+        "mocha": "2.2.x",
+        "ncp": "2.0.x"
     },
     "homepage": "https://github.com/materik/locally",
     "keywords": [
@@ -28,6 +34,10 @@
     "repository": {
         "type": "git",
         "url": "https://github.com/materik/locally.git"
+    },
+    "scripts": {
+        "demo": "./demo/localize.sh",
+        "test": "mocha test/test.js"
     },
     "version": "0.1.0"
 }
