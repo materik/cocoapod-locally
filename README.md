@@ -3,8 +3,8 @@
 [![](https://img.shields.io/badge/contact-@thematerik-blue.svg?style=flat-square)](http://twitter.com/thematerik)
 
 Node package for going through your Xcode project, locating all localized
-strings and add them to your `Localizable.strings` file. Also sorts and groups
-the strings if they are still used or not.
+strings and add them to your `Localizable.strings` files. Also sorts and groups
+the strings if they are new, in used or unused.
 
 ## Install
 
