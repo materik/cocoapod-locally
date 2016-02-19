@@ -1,16 +1,30 @@
 
 module.exports = format = {
 
-    inUseLocalizedStrings: function(lsInProject, lsInStringsFile, lsNotInStringsFile) {
+    newLocalizedStrings: function(lsInProject, lsInStringsFile, lsNotInStringsFile) {
+        var localizedStrings = []
+        if (lsNotInStringsFile.length > 0) { 
+            localizedStrings.push('');
+            localizedStrings.push('/* New strings */');
+            for (var i in lsNotInStringsFile) {
+                var key = lsNotInStringsFile[i];
+                localizedStrings.push(format.localizableString(key, lsInStringsFile));
+            }
+        }
+        return localizedStrings;
+    },
+
+    inUseLocalizedStrings: function(lsInProject, lsInStringsFile) {
         var localizedStrings = []
         var lsInStringsFileKeys = Object.keys(lsInStringsFile);
-        var lsStillInProject = utils.intersect(lsInStringsFileKeys, lsInProject);
-        var lsInUse = lsStillInProject.concat(lsNotInStringsFile).sort();
-        localizedStrings.push('');
-        localizedStrings.push('/* Localized strings */');
-        for (var i in lsInUse) {
-            var key = lsInUse[i];
-            localizedStrings.push(format.localizableString(key, lsInStringsFile));
+        var lsInUse = utils.intersect(lsInStringsFileKeys, lsInProject);
+        if (lsInUse.length > 0) { 
+            localizedStrings.push('');
+            localizedStrings.push('/* Used strings */');
+            for (var i in lsInUse) {
+                var key = lsInUse[i];
+                localizedStrings.push(format.localizableString(key, lsInStringsFile));
+            }
         }
         return localizedStrings;
     },

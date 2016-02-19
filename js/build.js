@@ -19,12 +19,15 @@ module.exports = build = {
 
                 var localizedStrings = [];
                 localizedStrings = localizedStrings.concat(
-                    format.inUseLocalizedStrings(lsInProject,
-                        lsInStringsFile, lsNotInStringsFile)
+                    format.newLocalizedStrings(lsInProject, lsInStringsFile,
+                        lsNotInStringsFile)
                 );
                 localizedStrings = localizedStrings.concat(
-                    format.notInUseLocalizedStrings(lsInProject,
-                        lsInStringsFile, lsNotInProject)
+                    format.inUseLocalizedStrings(lsInProject, lsInStringsFile)
+                );
+                localizedStrings = localizedStrings.concat(
+                    format.notInUseLocalizedStrings(lsInProject, lsInStringsFile,
+                        lsNotInProject)
                 );
                 localizedStrings.push('');
                 localizedStrings = localizedStrings.join('\n');
