@@ -6,13 +6,30 @@ var VAL_IN_STRINGS_FILE_PATTERN = '\"[^\"]*\" = \"([^\"].*)\";';
 
 module.exports = find = {
 
-    localizedStringsInProject: function(filepath, regex, callback) {
+    _localizedStringsInProject: function(filepath, regex, callback) {
         var cmd = 'grep -oh "' + regex + '" -r ' + filepath;
         regex = regex.replace(/\(/g, '\\(')
         regex = regex.replace(/\)/g, '\\)')
         regex = regex.replace(/\\\\\(/, '(');
         regex = regex.replace(/\\\\\)/, ')');
         find.localizedStrings(cmd, regex, null, callback);
+    },
+
+    localizedStringsInProject: function(filepath, regex, callback, lsInProject) {
+        lsInProject = lsInProject || [];
+        if (regex.length) {
+            if (regex.push) {
+                var r = regex.pop();
+                find._localizedStringsInProject(filepath, r, function(_lsInProject) {
+                    lsInProject = lsInProject.concat(_lsInProject);
+                    find.localizedStringsInProject(filepath, regex, callback, lsInProject);
+                });
+            } else {
+                find._localizedStringsInProject(filepath, regex, callback, lsInProject);
+            }
+        } else {
+            callback(lsInProject);
+        }
     },
 
     localizedStringsInStringsFile: function(filepath, callback) {

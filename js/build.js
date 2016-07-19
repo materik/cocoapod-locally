@@ -30,6 +30,7 @@ module.exports = build = {
                         lsNotInProject)
                 );
                 localizedStrings.push('');
+                localizedStrings.push('');
                 localizedStrings = localizedStrings.join('\n');
 
                 console.log('Writing to ' + outputFile);

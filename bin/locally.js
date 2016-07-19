@@ -11,8 +11,11 @@ var WORD_REGEX = '\\"\\([^\\"]*\\)\\"';
 
 var inputPath = extract.argument(FLAG_INPUT, true);
 var outputFile = extract.argument(FLAG_OUTPUT, true);
-var pattern = extract.argument(FLAG_PATTERN, false) || DEFAULT_PATTERN;
-pattern = pattern.replace('()', WORD_REGEX);
+var patterns = extract.arguments(FLAG_PATTERN, false);
+patterns.push(DEFAULT_PATTERN)
+patterns = patterns.map(function(pattern) {
+    return pattern.replace('()', WORD_REGEX);
+});
 
-build.exec(inputPath, pattern, outputFile);
+build.exec(inputPath, patterns, outputFile);
 

@@ -20,6 +20,7 @@
   NSLocalizedString(@"Profile Title", nil);
   NSLocalizedString(@"New String", nil);
   NSLocalizedString(@"New String", @"Duplicate");
+  @"Other New String".localize
 }
 
 @end

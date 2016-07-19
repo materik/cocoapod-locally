@@ -8,8 +8,9 @@ module.exports = format = {
         if (lsNotInStringsFile.length > 0) { 
             localizedStrings.push('');
             localizedStrings.push('/* New strings */');
-            for (var i in lsNotInStringsFile) {
-                var key = lsNotInStringsFile[i];
+            var keys = lsNotInStringsFile.sort()
+            for (var i in keys) {
+                var key = keys[i];
                 localizedStrings.push(format.localizableString(key, lsInStringsFile));
             }
         }
@@ -23,8 +24,9 @@ module.exports = format = {
         if (lsInUse.length > 0) { 
             localizedStrings.push('');
             localizedStrings.push('/* Used strings */');
-            for (var i in lsInUse) {
-                var key = lsInUse[i];
+            var keys = lsInUse.sort()
+            for (var i in keys) {
+                var key = keys[i];
                 localizedStrings.push(format.localizableString(key, lsInStringsFile));
             }
         }
@@ -37,8 +39,9 @@ module.exports = format = {
             var lsNotInUse = lsNotInProject.sort();
             localizedStrings.push('');
             localizedStrings.push('/* Unused strings */');
-            for (var i in lsNotInUse) {
-                var key = lsNotInUse[i];
+            var keys = lsNotInUse.sort()
+            for (var i in keys) {
+                var key = keys[i];
                 localizedStrings.push(format.localizableString(key, lsInStringsFile));
             }
         }

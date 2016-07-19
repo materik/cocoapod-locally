@@ -2,17 +2,41 @@
 var _ = require('underscore');
 
 module.exports = extract = {
-   
-    argument: function(flag, required) {
-        var val;
+
+    _argument: function(i) {
         var args = process.argv;
-        var i = args.indexOf(flag);
-        if (i >= 0 && i + 1 < args.length) {
-            val = args[i + 1];
+        if (i > 0 && i < args.length) {
+            return args[i];
+        }
+    },
+
+    _indexOfArgument: function(flag, i) {
+        return process.argv.indexOf(flag, i) + 1;
+    },
+
+    argument: function(flag, required) {
+        var i = extract._indexOfArgument(flag);
+        var arg = extract._argument(i);
+        if (arg) {
+            return arg;
         } else if (required) {
             throw ('Need to set ' + flag);
         }
-        return val;
+    },
+
+    arguments: function(flag, required) {
+        var i = 0;
+        var args = [];
+        while (true) {
+            i = extract._indexOfArgument(flag, i);
+            var arg = extract._argument(i);
+            if (arg) {
+                args.push(arg)
+            } else {
+                break
+            }
+        }
+        return args;
     },
 
     newLocalizedStrings: function(lsInProject, lsInStringsFile) {
