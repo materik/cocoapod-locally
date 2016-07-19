@@ -31,6 +31,14 @@ locally -i <INPUT> -o <OUTPUT> [-p <PATTERN>]
             where '()' will be picked out as the string.
               This flag can be set multiple times to support multiple patterns
             at the same time.
+
+Example:
+
+    locally \
+        -i MyProject \
+        -o MyProject/en.lproj/Localizable.strings \
+        -p "@().localize" \
+        -p "localize(@())"
 ```
 
 ## Demo
