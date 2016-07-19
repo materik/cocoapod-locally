@@ -6,7 +6,7 @@ var build = require('../js/build');
 var FLAG_INPUT = '-i';
 var FLAG_OUTPUT = '-o';
 var FLAG_PATTERN = '-p';
-var DEFAULT_PATTERN = 'NSLocalizedString\(@(), .*\)'
+var DEFAULT_PATTERN = 'NSLocalizedString\(@\\\\?(), .*\)'
 var WORD_REGEX = '\\"\\([^\\"]*\\)\\"';
 
 var inputPath = extract.argument(FLAG_INPUT, true);
