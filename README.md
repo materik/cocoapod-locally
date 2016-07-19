@@ -27,8 +27,10 @@ locally -i <INPUT> -o <OUTPUT> [-p <PATTERN>]
             'Resources/en.lproj/Localizable.strings'.
 
     -p, --pattern <PATTERN>
-            How should the localized file be found, by default: 'NSLocalizedString\(@?(), .*\)',
+            How should the localized file be found, by default: 'NSLocalizedString(@?(), .*)',
             where '()' will be picked out as the string.
+              This flag can be set multiple times to support multiple patterns
+            at the same time.
 ```
 
 ## Demo
