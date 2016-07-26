@@ -17,6 +17,20 @@ module.exports = format = {
         return localizedStrings;
     },
 
+    ignoredLocalizedStrings: function(lsIgnored) {
+        var localizedStrings = []
+        var keys = Object.keys(lsIgnored).sort()
+        if (keys.length > 0) { 
+            localizedStrings.push('');
+            localizedStrings.push('/* Ignored strings */');
+            for (var i in keys) {
+                var key = keys[i];
+                localizedStrings.push(format.localizableString(key, lsIgnored));
+            }
+        }
+        return localizedStrings;
+    },
+
     inUseLocalizedStrings: function(lsInProject, lsInStringsFile) {
         var localizedStrings = []
         var lsInStringsFileKeys = Object.keys(lsInStringsFile);

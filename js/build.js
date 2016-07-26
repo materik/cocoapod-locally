@@ -9,15 +9,24 @@ module.exports = build = {
     exec: function(inputPath, pattern, outputFile, callback) {
         console.log('Extracting Localization data from \'' + inputPath + '\'...');
 
-        find.localizedStringsInProject(inputPath, pattern, function(lsInProject) {
-            find.localizedStringsInStringsFile(outputFile, function(lsInStringsFile) {
+        find.all(inputPath, outputFile, pattern,
+                function(lsInProject, lsInStringsFile,
+                    lsIgnoredInProject, lsIgnoredInStringsFile) {
                 var lsInStringsFileKeys = Object.keys(lsInStringsFile);
-                var lsNotInStringsFile = extract.newLocalizedStrings(lsInProject, lsInStringsFileKeys);
-                var lsNotInProject = extract.unusedLocalizedStrings(lsInProject, lsInStringsFileKeys);
+                var lsIgnoredInStringsFileKeys = Object.keys(lsIgnoredInStringsFile);
+
+                build.logIgnoredLocalizedStrings(lsIgnoredInProject, lsIgnoredInStringsFileKeys);
+
+                var lsNotInStringsFile =
+                extract.newLocalizedStrings(lsInProject, lsInStringsFileKeys, lsIgnoredInProject);
+                var lsNotInProject = extract.unusedLocalizedStrings(lsInProject, lsInStringsFileKeys, lsIgnoredInStringsFileKeys);
 
                 console.log('Setting up new localized strings...');
 
                 var localizedStrings = [];
+                localizedStrings = localizedStrings.concat(
+                    format.ignoredLocalizedStrings(lsIgnoredInStringsFile)
+                );
                 localizedStrings = localizedStrings.concat(
                     format.newLocalizedStrings(lsInProject, lsInStringsFile,
                         lsNotInStringsFile)
@@ -46,8 +55,22 @@ module.exports = build = {
                         callback();
                     }
                 });
-            });
-        });
+            }
+        );
+    },
+
+    logIgnoredLocalizedStrings: function(ignoredLocalizedStringsInProject,
+                                         ignoredLocalizedStringsInStringsFile) {
+        var inProjectCount = ignoredLocalizedStringsInProject.length;
+        var inStringsFileCount = ignoredLocalizedStringsInStringsFile.length;
+        if (inProjectCount > 0) {
+            console.log('Found ' + inProjectCount + ' ignored string(s) in the project:');
+            console.log(ignoredLocalizedStringsInProject);
+        }
+        if (inStringsFileCount > 0) {
+            console.log('Found ' + inStringsFileCount + ' ignored string(s) in the Localizable file:');
+            console.log(ignoredLocalizedStringsInStringsFile);
+        }
     },
 
 };

@@ -39,8 +39,8 @@ module.exports = extract = {
         return args;
     },
 
-    newLocalizedStrings: function(lsInProject, lsInStringsFile) {
-        var newLs = _.uniq(_.difference(lsInProject, lsInStringsFile));
+    newLocalizedStrings: function(lsInProject, lsInStringsFile, ignore) {
+        var newLs = _.uniq(_.difference(_.difference(lsInProject, lsInStringsFile), ignore));
         var newLsCount = newLs.length;
         if (newLsCount > 0) {
             console.log('Found ' + newLsCount + ' new string(s):');
@@ -49,8 +49,8 @@ module.exports = extract = {
         return newLs;
     },
 
-    unusedLocalizedStrings: function(lsInProject, lsInStringsFile) {
-        var unusedLs = _.difference(lsInStringsFile, lsInProject);
+    unusedLocalizedStrings: function(lsInProject, lsInStringsFile, ignore) {
+        var unusedLs = _.difference(_.difference(lsInStringsFile, lsInProject), ignore);
         var unusedLsCount = unusedLs.length;
         if (unusedLsCount > 0) {
             console.log('Found ' + unusedLsCount + ' unused string(s):');
