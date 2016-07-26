@@ -31,15 +31,27 @@ locally -i <INPUT> -o <OUTPUT> [-p <PATTERN>]
             where '()' will be picked out as the string.
               This flag can be set multiple times to support multiple patterns
             at the same time.
-
-Example:
-
-    locally \
-        -i MyProject \
-        -o MyProject/en.lproj/Localizable.strings \
-        -p "@().localize" \
-        -p "localize(@())"
 ```
+
+### Example
+
+```
+locally \
+    -i MyProject \
+    -o MyProject/en.lproj/Localizable.strings \
+    -p "@().localize" \
+    -p "localize(@())"
+```
+
+### Ignore
+
+You can choose for Locally to ignore some strings in both your
+`Localizable.strings` file and in the project.
+
+* Add `// locally ignore: lint` on the end of each line in your project that you want to ignore
+* Add ignored strings under the section `/\* Ignored strings \*/` in your `Localizable.strings` file to have Locally skip them.
+
+See `Demo` for an example of how to use it.
 
 ## Demo
 
