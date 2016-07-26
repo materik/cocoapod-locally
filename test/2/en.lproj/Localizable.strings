@@ -1,8 +1,10 @@
 
+/* Ignored strings */
+"Ignored String" = "Ignored";
+
 /* Used strings */
 "New String" = "New String";
-"Profile Title" = "Profile";
+"Used String" = "Used";
 
 /* Unused strings */
 "Unused String" = "Unused";
-

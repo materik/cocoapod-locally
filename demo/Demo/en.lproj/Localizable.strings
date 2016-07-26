@@ -1,4 +1,4 @@
-/* 
+/*
   Localizable.strings
   Demo
 
@@ -6,7 +6,7 @@
   Copyright © 2016 materik. All rights reserved.
 */
 
-"Used String" = "Använd";
+"Used String" = "Used";
 "Unused String" = "Unused";
 
 /* Ignored strings */

@@ -1,8 +1,10 @@
 
+/* Ignored strings */
+"Ignored String" = "Ignorerad";
+
 /* Used strings */
 "New String" = "New String";
-"Profile Title" = "Profil";
+"Used String" = "Använd";
 
 /* Unused strings */
 "Unused String" = "Oanvänd";
-
