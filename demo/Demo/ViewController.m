@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 
+#import "NSString+Localizable.h"
+
 @interface ViewController ()
 
 @end
@@ -17,10 +19,12 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
 
-  NSLocalizedString(@"Profile Title", nil);
-  NSLocalizedString(@"New String", nil);
-  NSLocalizedString(@"New String", @"Duplicate");
-  @"Other New String".localize
+  NSLog(@"%@", NSLocalizedString(@"Used String", nil));
+  NSLog(@"%@", NSLocalizedString(@"New String", nil));
+  NSLog(@"%@", NSLocalizedString(@"New String", @"Duplicate"));
+  NSLog(@"%@", @"Other New String".localize);
+
+  NSLog(@"%@", NSLocalizedString(@"IGNORE ME", nil)); // locally ignore:line
 }
 
 @end

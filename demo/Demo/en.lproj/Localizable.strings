@@ -6,5 +6,8 @@
   Copyright © 2016 materik. All rights reserved.
 */
 
-"Profile Title" = "Profile";
+"Used String" = "Använd";
 "Unused String" = "Unused";
+
+/* Ignored strings */
+"Ignored String" = "Ignored";
