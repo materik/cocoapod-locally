@@ -10,14 +10,12 @@ module.exports = find = {
     _exec: function(cmd, callback) {
         child_process.exec(cmd, function(err, stdout, stderr) {
             if (err) {
-                console.log('> ' + cmd);
-                return console.log(err);
+                callback([]);
+            } else {
+                var strings = stdout.split('\n');
+                strings.pop();
+                callback(strings);
             }
-
-            var strings = stdout.split('\n');
-            strings.pop();
-
-            callback(strings);
         });
     },
 
