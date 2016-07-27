@@ -8,7 +8,9 @@ var ncp = require('ncp').ncp;
 
 var reset = function(callback) {
     resetLang('en', function() {
-        resetLang('sv', callback);
+        resetLang('sv', function() {
+            useImplementationFile(0, callback);
+        });
     });
 }
 
@@ -42,6 +44,16 @@ var compareLang = function(lang, step, callback) {
     });
 }
 
+var useImplementationFile = function(step, callback) {
+    var file = 'ViewController.m';
+    var testFile = './test/' + step + '/' + file;
+    var demoFile = './demo/Demo/' + file;
+    child_process.exec('cp ' + testFile + ' ' + demoFile, function(err) {
+        expect(err).to.be.null;
+        callback();
+    });
+}
+
 var run = function(callback) {
     child_process.exec('npm run demo', function(err) {
         expect(err).to.be.null;
@@ -55,15 +67,27 @@ describe('compare', function() {
     beforeEach(function(callback) { reset(callback); });
 
     it('run locally once', function(callback) {
-        run(function() {
-            compare('1', callback);
+        useImplementationFile(1, function() {
+            run(function() {
+                compare('1', callback);
+            });
         });
     });
 
     it('run locally twice', function(callback) {
-        run(function() {
+        useImplementationFile(2, function() {
             run(function() {
-                compare('2', callback);
+                run(function() {
+                    compare('2', callback);
+                });
+            });
+        });
+    });
+
+    it('run locally while missing ignored strings', function(callback) {
+        useImplementationFile(3, function() {
+            run(function() {
+                compare('3', callback);
             });
         });
     });
