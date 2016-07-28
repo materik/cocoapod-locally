@@ -25,9 +25,6 @@ module.exports = build = {
 
                 var localizedStrings = [];
                 localizedStrings = localizedStrings.concat(
-                    format.ignoredLocalizedStrings(lsIgnoredInStringsFile)
-                );
-                localizedStrings = localizedStrings.concat(
                     format.newLocalizedStrings(lsInProject, lsInStringsFile,
                         lsNotInStringsFile)
                 );
@@ -37,6 +34,9 @@ module.exports = build = {
                 localizedStrings = localizedStrings.concat(
                     format.notInUseLocalizedStrings(lsInProject, lsInStringsFile,
                         lsNotInProject)
+                );
+                localizedStrings = localizedStrings.concat(
+                    format.ignoredLocalizedStrings(lsIgnoredInStringsFile)
                 );
                 localizedStrings.push('');
                 localizedStrings = localizedStrings.join('\n');

@@ -1,7 +1,7 @@
 
-/* Ignored strings */
-"Ignored String" = "Ignored";
-
 /* Unused strings */
 "Unused String" = "Unused";
 "Used String" = "Used";
+
+/* Ignored strings */
+"Ignored String" = "Ignored";

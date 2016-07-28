@@ -1,7 +1,4 @@
 
-/* Ignored strings */
-"Ignored String" = "Ignorerad";
-
 /* New strings */
 "New String" = "New String";
 
@@ -10,3 +7,6 @@
 
 /* Unused strings */
 "Unused String" = "Oanvänd";
+
+/* Ignored strings */
+"Ignored String" = "Ignorerad";

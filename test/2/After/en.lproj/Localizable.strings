@@ -1,10 +1,10 @@
 
-/* Ignored strings */
-"Ignored String" = "Ignored";
-
 /* Used strings */
 "New String" = "New String";
 "Used String" = "Used";
 
 /* Unused strings */
 "Unused String" = "Unused";
+
+/* Ignored strings */
+"Ignored String" = "Ignored";
