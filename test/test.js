@@ -6,18 +6,28 @@ var expect = require('chai').expect;
 var fs = require('fs');
 var ncp = require('ncp').ncp;
 
-var reset = function(callback) {
-    resetLang('en', function() {
-        resetLang('sv', function() {
-            useImplementationFile(0, callback);
+var reset = function(step, callback) {
+    resetLang('en', step, function() {
+        resetLang('sv', step, function() {
+            resetImplementationFile(step, callback);
         });
     });
 }
 
-var resetLang = function(lang, callback) {
+var resetLang = function(lang, step, callback) {
     var localizableFile = lang + '.lproj/Localizable.strings';
-    var testFile = './test/0/' + localizableFile;
+    var testFile = './test/' + step + '/before/' + localizableFile;
     var demoFile = './demo/Demo/' + localizableFile;
+    child_process.exec('cp ' + testFile + ' ' + demoFile, function(err) {
+        expect(err).to.be.null;
+        callback();
+    });
+}
+
+var resetImplementationFile = function(step, callback) {
+    var file = 'ViewController.m';
+    var testFile = './test/' + step + '/' + file;
+    var demoFile = './demo/Demo/' + file;
     child_process.exec('cp ' + testFile + ' ' + demoFile, function(err) {
         expect(err).to.be.null;
         callback();
@@ -32,11 +42,15 @@ var compare = function(step, callback) {
 
 var compareLang = function(lang, step, callback) {
     var localizableFile = lang + '.lproj/Localizable.strings';
-    var testFile = './test/' + step + '/' + localizableFile;
+    var testFile = './test/' + step + '/after/' + localizableFile;
     var demoFile = './demo/Demo/' + localizableFile;
     diff(testFile, demoFile, function(result) {
         if (!result) {
             console.log(testFile + ' != ' + demoFile);
+            console.log('==============');
+            console.log(fs.readFileSync(demoFile, 'utf8'));
+            console.log('==============');
+            console.log();
         }
 
         expect(result).to.be.true;
@@ -44,18 +58,8 @@ var compareLang = function(lang, step, callback) {
     });
 }
 
-var useImplementationFile = function(step, callback) {
-    var file = 'ViewController.m';
-    var testFile = './test/' + step + '/' + file;
-    var demoFile = './demo/Demo/' + file;
-    child_process.exec('cp ' + testFile + ' ' + demoFile, function(err) {
-        expect(err).to.be.null;
-        callback();
-    });
-}
-
 var run = function(callback) {
-    child_process.exec('npm run demo', function(err) {
+    child_process.exec('npm run demo', function(err, stdout) {
         expect(err).to.be.null;
         callback();
     });
@@ -63,19 +67,18 @@ var run = function(callback) {
 
 describe('compare', function() {
 
-    after(function(callback) { reset(callback); });
-    beforeEach(function(callback) { reset(callback); });
+    after(function(callback) { reset('1', callback); });
 
-    it('run locally once', function(callback) {
-        useImplementationFile(1, function() {
+    it('run once', function(callback) {
+        reset('1', function() {
             run(function() {
                 compare('1', callback);
             });
         });
     });
 
-    it('run locally twice', function(callback) {
-        useImplementationFile(2, function() {
+    it('run twice', function(callback) {
+        reset('2', function() {
             run(function() {
                 run(function() {
                     compare('2', callback);
@@ -84,10 +87,18 @@ describe('compare', function() {
         });
     });
 
-    it('run locally while missing ignored strings', function(callback) {
-        useImplementationFile(3, function() {
+    it('run while missing ignored strings', function(callback) {
+        reset('3', function() {
             run(function() {
                 compare('3', callback);
+            });
+        });
+    });
+
+    it('run with empty strings in the Localizable file', function(callback) {
+        reset('4', function() {
+            run(function() {
+                compare('4', callback);
             });
         });
     });

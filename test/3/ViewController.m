@@ -18,11 +18,6 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-
-  NSLog(@"%@", NSLocalizedString(@"Used String", nil));
-  NSLog(@"%@", NSLocalizedString(@"New String", nil));
-  NSLog(@"%@", NSLocalizedString(@"New String", @"Duplicate"));
-  NSLog(@"%@", @"Other New String".localize);
 }
 
 @end

@@ -2,8 +2,8 @@
 var _ = require('underscore');
 var child_process = require('child_process');
 
-var KEY_IN_STRINGS_FILE_PATTERN = '\"([^\"]*)\" = \"[^\"].*\";';
-var VAL_IN_STRINGS_FILE_PATTERN = '\"[^\"]*\" = \"([^\"].*)\";';
+var KEY_IN_STRINGS_FILE_PATTERN = '\"([^\"]*)\" = \"[^\"]*\";';
+var VAL_IN_STRINGS_FILE_PATTERN = '\"[^\"]*\" = \"([^\"]*)\";';
 
 module.exports = find = {
 

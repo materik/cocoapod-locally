@@ -63,7 +63,8 @@ module.exports = format = {
     },
 
     localizableString: function(key, store) {
-        var val = store[key] || key;
+        var val = store[key]
+        var val = val === undefined ? key : val;
         return '"' + key + '" = "' + val + '";';
     },
 

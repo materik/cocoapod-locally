@@ -20,11 +20,6 @@
   [super viewDidLoad];
 
   NSLog(@"%@", NSLocalizedString(@"Used String", nil));
-  NSLog(@"%@", NSLocalizedString(@"New String", nil));
-  NSLog(@"%@", NSLocalizedString(@"New String", @"Duplicate"));
-  NSLog(@"%@", @"Other New String".localize);
-
-  NSLog(@"%@", NSLocalizedString(@"IGNORE ME", nil)); // locally ignore:line
 }
 
 @end

@@ -1,0 +1,13 @@
+/*
+  Localizable.strings
+  Demo
+
+  Created by materik on 19/02/16.
+  Copyright © 2016 materik. All rights reserved.
+*/
+
+"Used String" = "Used";
+"Unused String" = "Unused";
+
+/* Ignored strings */
+"Ignored String" = "Ignored";
