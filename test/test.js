@@ -16,7 +16,7 @@ var reset = function(step, callback) {
 
 var resetLang = function(lang, step, callback) {
     var localizableFile = lang + '.lproj/Localizable.strings';
-    var testFile = './test/' + step + '/before/' + localizableFile;
+    var testFile = './test/' + step + '/Before/' + localizableFile;
     var demoFile = './demo/Demo/' + localizableFile;
     child_process.exec('cp ' + testFile + ' ' + demoFile, function(err) {
         expect(err).to.be.null;
@@ -42,7 +42,7 @@ var compare = function(step, callback) {
 
 var compareLang = function(lang, step, callback) {
     var localizableFile = lang + '.lproj/Localizable.strings';
-    var testFile = './test/' + step + '/after/' + localizableFile;
+    var testFile = './test/' + step + '/After/' + localizableFile;
     var demoFile = './demo/Demo/' + localizableFile;
     diff(testFile, demoFile, function(result) {
         if (!result) {
