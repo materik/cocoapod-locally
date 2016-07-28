@@ -62,16 +62,20 @@ var run = function(callback) {
     });
 }
 
+var runSimpleTest = function(step, callback) {
+    reset(step, function() {
+        run(function() {
+            compare(step, callback);
+        });
+    });
+}
+
 describe('compare', function() {
 
     after(function(callback) { reset('1', callback); });
 
     it('run once', function(callback) {
-        reset('1', function() {
-            run(function() {
-                compare('1', callback);
-            });
-        });
+        runSimpleTest('1', callback);
     });
 
     it('run twice', function(callback) {
@@ -85,27 +89,23 @@ describe('compare', function() {
     });
 
     it('run while missing ignored strings', function(callback) {
-        reset('3', function() {
-            run(function() {
-                compare('3', callback);
-            });
-        });
+        runSimpleTest('3', callback);
     });
 
     it('run with empty strings in the Localizable file', function(callback) {
-        reset('4', function() {
-            run(function() {
-                compare('4', callback);
-            });
-        });
+        runSimpleTest('4', callback);
     });
 
     it('run with sorted result', function(callback) {
-        reset('5', function() {
-            run(function() {
-                compare('5', callback);
-            });
-        });
+        runSimpleTest('5', callback);
+    });
+
+    it('run with quotes in the localized value', function(callback) {
+        runSimpleTest('6', callback);
+    });
+
+    it('run with to localization expressions on the same line', function(callback) {
+        runSimpleTest('7', callback);
     });
 
 });
