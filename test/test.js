@@ -46,14 +46,11 @@ var compareLang = function(lang, step, callback) {
     var demoFile = './demo/Demo/' + localizableFile;
     diff(testFile, demoFile, function(result) {
         if (!result) {
-            console.log(testFile + ' != ' + demoFile);
-            console.log('==============');
-            console.log(fs.readFileSync(demoFile, 'utf8'));
-            console.log('==============');
-            console.log();
+            var testFileContent = fs.readFileSync(testFile, 'utf8');
+            var demoFileContent = fs.readFileSync(demoFile, 'utf8');
+            expect(demoFileContent).to.be.eql(testFileContent);
         }
 
-        expect(result).to.be.true;
         callback();
     });
 }
