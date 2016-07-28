@@ -19,6 +19,9 @@
 		C1C8FEF91D4A2BAA00FD6BB8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C1C8FEE81D4A2BAA00FD6BB8 /* Localizable.strings */; };
 		C1C8FEFA1D4A2BAA00FD6BB8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C1C8FEEC1D4A2BAA00FD6BB8 /* Localizable.strings */; };
 		C1C8FEFB1D4A2BAA00FD6BB8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1C8FEEF1D4A2BAA00FD6BB8 /* ViewController.m */; };
+		C1C8FF061D4A338400FD6BB8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C1C8FEFE1D4A338400FD6BB8 /* Localizable.strings */; };
+		C1C8FF071D4A338400FD6BB8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C1C8FF021D4A338400FD6BB8 /* Localizable.strings */; };
+		C1C8FF081D4A338400FD6BB8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1C8FF051D4A338400FD6BB8 /* ViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +45,11 @@
 		C1C8FEED1D4A2BAA00FD6BB8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C1C8FEEE1D4A2BAA00FD6BB8 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C1C8FEEF1D4A2BAA00FD6BB8 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		C1C8FEFF1D4A338400FD6BB8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C1C8FF001D4A338400FD6BB8 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C1C8FF031D4A338400FD6BB8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C1C8FF041D4A338400FD6BB8 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C1C8FF051D4A338400FD6BB8 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		C1D4A7C21D47FEF400AD0FB4 /* Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -160,6 +168,32 @@
 			path = Before;
 			sourceTree = "<group>";
 		};
+		C1C8FEFC1D4A338400FD6BB8 /* 5 */ = {
+			isa = PBXGroup;
+			children = (
+				C1C8FEFD1D4A338400FD6BB8 /* After */,
+				C1C8FF011D4A338400FD6BB8 /* Before */,
+				C1C8FF051D4A338400FD6BB8 /* ViewController.m */,
+			);
+			path = 5;
+			sourceTree = "<group>";
+		};
+		C1C8FEFD1D4A338400FD6BB8 /* After */ = {
+			isa = PBXGroup;
+			children = (
+				C1C8FEFE1D4A338400FD6BB8 /* Localizable.strings */,
+			);
+			path = After;
+			sourceTree = "<group>";
+		};
+		C1C8FF011D4A338400FD6BB8 /* Before */ = {
+			isa = PBXGroup;
+			children = (
+				C1C8FF021D4A338400FD6BB8 /* Localizable.strings */,
+			);
+			path = Before;
+			sourceTree = "<group>";
+		};
 		C1D4A7B91D47FEF400AD0FB4 = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +201,7 @@
 				C1C8FED21D4A2BAA00FD6BB8 /* 2 */,
 				C1C8FEDC1D4A2BAA00FD6BB8 /* 3 */,
 				C1C8FEE61D4A2BAA00FD6BB8 /* 4 */,
+				C1C8FEFC1D4A338400FD6BB8 /* 5 */,
 				C1D4A7C31D47FEF400AD0FB4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -241,6 +276,8 @@
 				C1C8FEF71D4A2BAA00FD6BB8 /* Localizable.strings in Resources */,
 				C1C8FEF01D4A2BAA00FD6BB8 /* Localizable.strings in Resources */,
 				C1C8FEF91D4A2BAA00FD6BB8 /* Localizable.strings in Resources */,
+				C1C8FF061D4A338400FD6BB8 /* Localizable.strings in Resources */,
+				C1C8FF071D4A338400FD6BB8 /* Localizable.strings in Resources */,
 				C1C8FEF41D4A2BAA00FD6BB8 /* Localizable.strings in Resources */,
 				C1C8FEFA1D4A2BAA00FD6BB8 /* Localizable.strings in Resources */,
 				C1C8FEF31D4A2BAA00FD6BB8 /* Localizable.strings in Resources */,
@@ -259,6 +296,7 @@
 				C1C8FEF51D4A2BAA00FD6BB8 /* ViewController.m in Sources */,
 				C1C8FEFB1D4A2BAA00FD6BB8 /* ViewController.m in Sources */,
 				C1C8FEF21D4A2BAA00FD6BB8 /* ViewController.m in Sources */,
+				C1C8FF081D4A338400FD6BB8 /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +371,24 @@
 			children = (
 				C1C8FEED1D4A2BAA00FD6BB8 /* en */,
 				C1C8FEEE1D4A2BAA00FD6BB8 /* sv */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		C1C8FEFE1D4A338400FD6BB8 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C1C8FEFF1D4A338400FD6BB8 /* en */,
+				C1C8FF001D4A338400FD6BB8 /* sv */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		C1C8FF021D4A338400FD6BB8 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C1C8FF031D4A338400FD6BB8 /* en */,
+				C1C8FF041D4A338400FD6BB8 /* sv */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

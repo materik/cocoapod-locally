@@ -103,5 +103,13 @@ describe('compare', function() {
         });
     });
 
+    it('run with sorted result', function(callback) {
+        reset('5', function() {
+            run(function() {
+                compare('5', callback);
+            });
+        });
+    });
+
 });
 
