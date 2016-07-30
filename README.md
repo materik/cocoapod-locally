@@ -21,16 +21,17 @@ locally -i <INPUT> -o <OUTPUT> [-p <PATTERN>]
     -i, --input <INPUT>
             Filepath to the project where the recursive lookthrough
             for localized strings should take place.
+              Supports multiple arguments.
 
     -o, --output <OUTPUT>
             Filepath to where the localized strings be saved, example:
             'Resources/en.lproj/Localizable.strings'.
+              Supports multiple arguments.
 
     -p, --pattern <PATTERN>
             How should the localized file be found, by default: 'NSLocalizedString(@?(), .*)',
             where '()' will be picked out as the string.
-              This flag can be set multiple times to support multiple patterns
-            at the same time.
+              Supports multiple arguments.
 ```
 
 ### Example
@@ -39,6 +40,7 @@ locally -i <INPUT> -o <OUTPUT> [-p <PATTERN>]
 locally \
     -i MyProject \
     -o MyProject/en.lproj/Localizable.strings \
+    -o MyProject/sv.lproj/Localizable.strings \
     -p "@().localize" \
     -p "localize(@())"
 ```
