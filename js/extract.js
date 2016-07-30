@@ -36,7 +36,11 @@ module.exports = extract = {
                 break
             }
         }
-        return args;
+        if (args) {
+            return args;
+        } else if (required) {
+            throw ('Need to set ' + flag);
+        }
     },
 
     newLocalizedStrings: function(lsInProject, lsInStringsFile, ignore) {
@@ -44,7 +48,6 @@ module.exports = extract = {
         var newLsCount = newLs.length;
         if (newLsCount > 0) {
             console.log('Found ' + newLsCount + ' new string(s):');
-            console.log(newLs);
         }
         return newLs;
     },
@@ -54,7 +57,6 @@ module.exports = extract = {
         var unusedLsCount = unusedLs.length;
         if (unusedLsCount > 0) {
             console.log('Found ' + unusedLsCount + ' unused string(s):');
-            console.log(unusedLs);
         }
         return unusedLs;
     },
