@@ -130,5 +130,31 @@ describe('compare', function() {
         runSimpleTest('8', callback, ['en', 'sv', 'es']);
     });
 
+    it('multiple input', function(callback) {
+        setupTest('9', function() {
+            var cmd = './bin/locally.js ' +
+                      '-i test/Test ' +
+                      '-i test/9 ' +
+                      '-o test/Test/en.lproj/Localizable.strings';
+            child_process.exec(cmd, function(err, stdout) {
+                expect(err).to.be.null;
+                compare('9', callback);
+            });
+        });
+    });
+
+    it('multiple patterns', function(callback) {
+        setupTest('10', function() {
+            var cmd = './bin/locally.js ' +
+                      '-i test/Test ' +
+                      '-o test/Test/en.lproj/Localizable.strings ' +
+                      '-p "().localize"';
+            child_process.exec(cmd, function(err, stdout) {
+                expect(err).to.be.null;
+                compare('10', callback);
+            });
+        });
+    });
+
 });
 

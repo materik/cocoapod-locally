@@ -17,7 +17,7 @@ var inputPaths = extract.arguments(FLAG_INPUT, true);
 _.each(inputPaths, function(inputPath) {
     console.log('Extracting Localization data from \'' + inputPath + '\'...');
 });
-var inputPath = inputPaths.join('|');
+var inputPath = inputPaths.join(' ');
 
 // Output: -o
 var outputFiles = extract.arguments(FLAG_OUTPUT, true);
