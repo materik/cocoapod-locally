@@ -70,7 +70,8 @@ var run = function(callback, langs) {
     var outputs = langs.map(function(lang) {
         return 'test/Test/' + lang + '.lproj/Localizable.strings';
     });
-    var cmd = bin + ' -i ' + input + ' -o ' + outputs.join(' -o ');
+    var output = outputs.join(' -o ');
+    var cmd = bin + ' -i ' + input + ' -o ' + output;
     child_process.exec(cmd, function(err, stdout) {
         expect(err).to.be.null;
         callback();

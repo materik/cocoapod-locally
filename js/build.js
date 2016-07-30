@@ -12,12 +12,11 @@ module.exports = build = {
                     lsIgnoredInProject, lsIgnoredInStringsFile) {
                 var lsInStringsFileKeys = Object.keys(lsInStringsFile);
                 var lsIgnoredInStringsFileKeys = Object.keys(lsIgnoredInStringsFile);
-
-                build.logIgnoredLocalizedStrings(lsIgnoredInProject, lsIgnoredInStringsFileKeys);
-
                 var lsNotInStringsFile =
                 extract.newLocalizedStrings(lsInProject, lsInStringsFileKeys, lsIgnoredInProject);
                 var lsNotInProject = extract.unusedLocalizedStrings(lsInProject, lsInStringsFileKeys, lsIgnoredInStringsFileKeys);
+                
+                build.log(lsInProject, lsInStringsFileKeys, lsNotInStringsFile, lsNotInProject, lsIgnoredInProject, lsIgnoredInStringsFileKeys);
 
                 var localizedStrings = [];
                 localizedStrings = localizedStrings.concat(
@@ -38,6 +37,7 @@ module.exports = build = {
                 localizedStrings = localizedStrings.join('\n');
 
                 console.log('Writing to ' + outputFile);
+                console.log();
                 fs.writeFile(outputFile, localizedStrings, function(err) {
                     if (err) {
                         return console.log(err);
@@ -50,15 +50,32 @@ module.exports = build = {
         );
     },
 
-    logIgnoredLocalizedStrings: function(ignoredLocalizedStringsInProject,
-                                         ignoredLocalizedStringsInStringsFile) {
-        var inProjectCount = ignoredLocalizedStringsInProject.length;
-        var inStringsFileCount = ignoredLocalizedStringsInStringsFile.length;
-        if (inProjectCount > 0) {
-            console.log('Found ' + inProjectCount + ' ignored string(s) in the project:');
+    log: function(localizedStringsInProject, localizedStringsInStringsFile,
+                  newLocalizedStrings, unusedLocalizedStrings,
+                  ignoredLocalizedStringsInProject, ignoredLocalizedStringsInStringsFile) {
+        var localizedStringsInProjectCount = localizedStringsInProject.length;
+        var localizedStringsInStringsFileCount = localizedStringsInStringsFile.length;
+        var newLocalizedStringsCount = newLocalizedStrings.length;
+        var unusedLocalizedStringsCount = unusedLocalizedStrings.length;
+        var ignoredLocalizedStringsInProjectCount = ignoredLocalizedStringsInProject.length;
+        var ignoredLocalizedStringsInStringsFileCount = ignoredLocalizedStringsInStringsFile.length;
+        if (localizedStringsInProjectCount > 0) {
+            console.log('Found ' + localizedStringsInProjectCount + ' string(s) in the project');
         }
-        if (inStringsFileCount > 0) {
-            console.log('Found ' + inStringsFileCount + ' ignored string(s) in the Localizable file:');
+        if (localizedStringsInStringsFileCount > 0) {
+            console.log('Found ' + localizedStringsInStringsFileCount + ' string(s) in the Localizable file');
+        }
+        if (newLocalizedStringsCount > 0) {
+            console.log('Found ' + newLocalizedStringsCount + ' new string(s) in the project');
+        }
+        if (unusedLocalizedStringsCount > 0) {
+            console.log('Found ' + unusedLocalizedStringsCount + ' unused string(s) in the Localizable file');
+        }
+        if (ignoredLocalizedStringsInProjectCount > 0) {
+            console.log('Found ' + ignoredLocalizedStringsInProjectCount+ ' ignored string(s) in the project');
+        }
+        if (ignoredLocalizedStringsInStringsFileCount> 0) {
+            console.log('Found ' + ignoredLocalizedStringsInStringsFileCount + ' ignored string(s) in the Localizable file');
         }
     },
 

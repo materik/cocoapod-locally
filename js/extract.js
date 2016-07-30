@@ -44,21 +44,11 @@ module.exports = extract = {
     },
 
     newLocalizedStrings: function(lsInProject, lsInStringsFile, ignore) {
-        var newLs = _.uniq(_.difference(_.difference(lsInProject, lsInStringsFile), ignore));
-        var newLsCount = newLs.length;
-        if (newLsCount > 0) {
-            console.log('Found ' + newLsCount + ' new string(s):');
-        }
-        return newLs;
+        return _.uniq(_.difference(_.difference(lsInProject, lsInStringsFile), ignore));
     },
 
     unusedLocalizedStrings: function(lsInProject, lsInStringsFile, ignore) {
-        var unusedLs = _.difference(_.difference(lsInStringsFile, lsInProject), ignore);
-        var unusedLsCount = unusedLs.length;
-        if (unusedLsCount > 0) {
-            console.log('Found ' + unusedLsCount + ' unused string(s):');
-        }
-        return unusedLs;
+        return _.difference(_.difference(lsInStringsFile, lsInProject), ignore);
     },
 
 };

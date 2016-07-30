@@ -31,6 +31,7 @@ patterns = patterns.map(function(pattern) {
 
 // - BUILD
 
+console.log();
 _.each(outputFiles, function(outputFile) {
     build.exec(inputPath, patterns, outputFile);
 });
