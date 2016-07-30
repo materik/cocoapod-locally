@@ -11,3 +11,5 @@ Podfile.lock
 *.log
 
 node_modules
+
+test/Test

@@ -6,11 +6,8 @@
   Copyright © 2016 materik. All rights reserved.
 */
 
-"Apple" = "";
-"Banana" = "";
-"orange" = "";
-"Grape" = "";
-"apricot" = "";
-"fig" = "";
-"Walnut" = "";
-"tamarillo" = "";
+"Used String" = "Used";
+"Unused String" = "Unused";
+
+/* Ignored strings */
+"Ignored String" = "Ignored";

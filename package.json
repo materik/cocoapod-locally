@@ -21,8 +21,7 @@
     "devDependencies": {
         "chai": "2.3.x",
         "file-compare": "0.0.x",
-        "mocha": "2.2.x",
-        "ncp": "2.0.x"
+        "mocha": "2.2.x"
     },
     "homepage": "https://github.com/materik/locally",
     "keywords": [
