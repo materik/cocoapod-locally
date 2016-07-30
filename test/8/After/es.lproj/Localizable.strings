@@ -3,10 +3,10 @@
 "New String" = "New String";
 
 /* Used strings */
-"Used String" = "Använd";
+"Used String" = "Usado";
 
 /* Unused strings */
-"Unused String" = "Oanvänd";
+"Unused String" = "No Usado";
 
 /* Ignored strings */
-"Ignored String" = "Ignorerad";
+"Ignored String" = "Ignorado";

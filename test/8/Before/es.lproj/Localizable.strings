@@ -6,8 +6,8 @@
   Copyright © 2016 materik. All rights reserved.
 */
 
-"Used String" = "Använd";
-"Unused String" = "Oanvänd";
+"Used String" = "Usado";
+"Unused String" = "No Usado";
 
 /* Ignored strings */
-"Ignored String" = "Ignorerad";
+"Ignored String" = "Ignorado";
