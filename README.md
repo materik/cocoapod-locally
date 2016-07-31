@@ -58,10 +58,15 @@ See `Demo` for an example of how to use it.
 ## Demo
 
 Open the `Demo.xcodeproj`. Look into the `Localizable.strings` files and see the
-`ViewController` class. Now go to the `demo` folder and execute `./localize.sh`.
-See how the `Localizable.strings` files have changed.
+`ViewController` class. Now, go to the root folder in the terminal and execute:
+`npm run demo`. See how the `Localizable.strings` files changes with the runs.
+
+## Test
+
+There are multiple tests for the package. You can run them locally by executing:
+`npm test`.
 
 ## Notes
 
-- Will make this into a Xcode plugin
+- Will attempt to make this into a Xcode plugin.
 
